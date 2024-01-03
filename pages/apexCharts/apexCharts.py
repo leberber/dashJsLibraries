@@ -4,13 +4,14 @@ from dash import html, dcc,Input, Output, clientside_callback, ClientsideFunctio
 import dash_mantine_components as dmc
 from pages.data import imports
 
+
 register_page(__name__, path='/')
 
 layout = html.Div(
     children = [
-        dcc.Store(id = 'sampleData', data=imports ),
+        dcc.Store(id = 'ApexchartsSampleData', data=imports ),
         dmc.Paper(
-            className = 'apexCharts',
+            className = 'ChartAreaDiv',
             shadow="sm",
             children = [
                 html.Div(id = 'apexAreaChart'),
@@ -35,7 +36,7 @@ clientside_callback(
         function_name='areaChart'
     ),
     Output("apexAreaChart", "children"),
-    Input("sampleData", "data"),
+    Input("ApexchartsSampleData", "data"),
 
 )
 

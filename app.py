@@ -8,6 +8,11 @@ app = Dash(
      external_scripts=[
         'https://cdn.jsdelivr.net/npm/apexcharts',
         'https://code.highcharts.com/highcharts.js', 
+        'https://code.highcharts.com/modules/exporting.js',
+        'https://code.highcharts.com/modules/export-data.js',
+        'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+        'https://code.highcharts.com/modules/accessibility.js',
+        'http://code.highcharts.com/highcharts-more.js'
     ]
     )
 
