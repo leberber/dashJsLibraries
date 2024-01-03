@@ -1,0 +1,60 @@
+/* setTimeout(()=>{debugger;},5000) */
+/* *{ scrollbar-width: thin; scrollbar-color: black white } */
+body{
+    /* background-color: rgb(246, 236, 246); */
+}
+
+#dash-page-navigation-bar {
+    position: fixed;
+    bottom:20px; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap:30px;
+  
+}
+
+
+/* body, html{ padding: 0 !important; margin: 0 !important}
+*, :after, :before { box-sizing: border-box}
+
+:root {
+    --side-navigation-bgc: rgba(31,41,55,1);
+    --page-bg-color : #f5f8fb;
+    --page-navigation-bar-width :60px;
+    --sidebar-bg-color: rgba(31,41,55,1);
+}
+
+#dash-page-container {
+    width: 100% !important;
+    background-color: var(--page-bg-color );
+    overflow: hidden;
+}
+
+
+
+.pages-sidebar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    height: 55px;
+}
+
+.hovered-link:hover, .hovered-link:active, .hovered-link:focus{
+    background-color: #374151;
+}
+
+.plotly-logo{
+    position: fixed;
+    bottom: 12px;
+    left: 10px;
+}
+
+#home, #analytics, #archive{
+    margin-left: var(--page-navigation-bar-width);
+}
+
+.sidebar-style{
+    border-left: 3px  solid rgb(30, 29, 29);
+    background-color: var(--sidebar-bg-color);
+} */
