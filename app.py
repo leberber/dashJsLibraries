@@ -108,7 +108,7 @@ app.layout = html.Div(
         html.Div(
             id = 'goToSiteButton',
             children = [ 
-                 goToSite('https://d3js.org/', 'D3Js')
+                 goToSite('https://d3js.org/', 'd3js')
                  
             ]
         ),
