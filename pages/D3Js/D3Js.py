@@ -4,17 +4,10 @@ import dash_mantine_components as dmc
 
 register_page(__name__, path='/')
 
-layout = html.Div(
-    id = 'D3Js',
-    children=[
-       
-          
-        
-    ]
-)
+
 
 layout = html.Div(
-    id = 'D3Js',
+    id = 'd3js',
     children = [
         dmc.Paper(
             className = 'ChartAreaDiv',

@@ -7,12 +7,9 @@ app = Dash(
      suppress_callback_exceptions=True,
      external_scripts=[
         'https://cdn.jsdelivr.net/npm/apexcharts',
+        # These are served locally
         # 'https://code.highcharts.com/highcharts.js', 
-    
         # 'http://code.highcharts.com/highcharts-more.js',
-       
-        
-
         'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
 
         'https://d3js.org/d3.v6.min.js',
@@ -34,7 +31,16 @@ app = Dash(
     ], 
 )
 
+
+
 server = app.server
+
+_pages = {
+    'apexcharts':'https://apexcharts.com/',
+    'highcharts':'https://www.highcharts.com/demo' ,
+    'leaflet':'https://leafletjs.com/', 
+    'd3js':'https://d3js.org/'
+}
 
 focusLinkStyle = { 
      'width':'70px', 
@@ -47,7 +53,7 @@ focusLinkStyle = {
 }
 
 def page_link (pageHref):
-    if pageHref == 'D3Js':
+    if pageHref == 'd3js':
         href = "/"
         style = focusLinkStyle
     else:
@@ -68,12 +74,7 @@ def page_link (pageHref):
         ]
     )
 
-_pages = {
-    'apexCharts':'https://apexcharts.com/',
-    'Highcharts':'https://www.highcharts.com/demo' ,
-    'Leaflet':'https://leafletjs.com/', 
-    'D3Js':'https://d3js.org/'
-}
+
 def goToSite(link, logo):
     return  html.A(
                 href=link, 

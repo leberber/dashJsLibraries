@@ -4,7 +4,7 @@ from pages.data import emissions
 from dash_iconify import DashIconify
 
 
-register_page(__name__, path='/Highcharts')
+register_page(__name__, path='/highcharts')
 
 
 layout = html.Div(

@@ -1,11 +1,11 @@
 from dash import register_page, callback, html,  Input, Output, ClientsideFunction, clientside_callback
 import dash_mantine_components as dmc
 
-register_page(__name__, path='/Leaflet')
+register_page(__name__, path='/leaflet')
 
 
 layout = html.Div(
-    id = 'Leaflet',
+    id = 'leaflet',
     children = [
         html.Div(
              id='mapContainer',
