@@ -1,3 +1,4 @@
 dash==2.13.0 
 dash-mantine-components==0.13.0a3
 dash-iconify==0.1.2
+gunicorn
