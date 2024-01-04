@@ -3,7 +3,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
 
     highcharts: {
 
-        lineChart: function (emissions, reset) {
+        packedbubble: function (emissions, reset) {
 
           const packedbubbleChart = Highcharts.chart('highchartAreaChart',
            {

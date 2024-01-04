@@ -5,7 +5,7 @@ import dash_mantine_components as dmc
 from pages.data import imports
 
 
-register_page(__name__, path='/')
+register_page(__name__, path='/apexCharts')
 
 layout = html.Div(
     children = [

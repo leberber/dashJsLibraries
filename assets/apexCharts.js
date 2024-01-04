@@ -60,7 +60,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                     formatter: GigatonneFormatter
                   },
               };
-              var chart = new ApexCharts(document.querySelector("#apexAreaChart"), options);
+              var chart = new ApexCharts(document.getElementById('apexAreaChart'), options);
 
               document.getElementById('selectCountryChip').addEventListener('change', (e) => {
                 data = trade.filter(item=>  item.country===e.target.value) 

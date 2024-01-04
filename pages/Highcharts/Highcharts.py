@@ -43,7 +43,7 @@ layout = html.Div(
 clientside_callback(
     ClientsideFunction(
         namespace='highcharts',
-        function_name='lineChart'
+        function_name='packedbubble'
     ),
  Output("highchartAreaChart", "children"),
  Input("HighchartsSampleData", "data"),

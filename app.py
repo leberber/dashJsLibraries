@@ -1,4 +1,4 @@
-from dash import Dash,  html, dcc, Output,Input, callback, page_container,  ALL
+from dash import Dash,  html, dcc, Output,Input, callback, page_container,  ALL, ctx
 import dash_mantine_components as dmc
 
 app = Dash(
@@ -12,8 +12,24 @@ app = Dash(
         'https://code.highcharts.com/modules/export-data.js',
         'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
         'https://code.highcharts.com/modules/accessibility.js',
-        'http://code.highcharts.com/highcharts-more.js'
-    ]
+        'http://code.highcharts.com/highcharts-more.js',
+        'https://d3js.org/d3.v6.min.js',
+        'https://d3js.org/d3.v4.js',
+        'https://d3js.org/d3-geo-projection.v2.min.js',
+         {
+        'src': 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+        'integrity': 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="',
+        'crossorigin': ''
+    },
+    ],
+      external_stylesheets = [
+    {
+        'href': 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
+        'rel': 'stylesheet',
+        'integrity': 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=',
+        'crossorigin': ''
+    },
+], 
     )
 
 focusLinkStyle = { 
@@ -27,7 +43,7 @@ focusLinkStyle = {
 }
 
 def page_link (pageHref):
-    if pageHref == 'apexCharts':
+    if pageHref == 'D3Js':
         href = "/"
         style = focusLinkStyle
     else:
@@ -48,19 +64,42 @@ def page_link (pageHref):
         ]
     )
 
-_pages = ['apexCharts','Highcharts', 'Leaflet', 'D3Js']
+_pages = {
+    'apexCharts':'https://apexcharts.com/',
+    'Highcharts':'https://www.highcharts.com/demo' ,
+    'Leaflet':'https://leafletjs.com/', 
+    'D3Js':'https://d3js.org/'
+}
+def goToSite(link, logo):
+    return  html.A(
+                href=link, 
+                target="_blank",
+                children = [
+                    dmc.Button(
+                        "Visite Library",
+                        variant="subtle",
+                        className = 'goToSiteButton',
+                        leftIcon=dmc.Image(src=f"/assets/svg/{logo}.svg", width=20),
+                    )
+                ]
+            )
 
 app.layout = html.Div(
     id = 'dash-app-layout',
     children = [
-         html.Div(id = 'unUsedInput'),
+        html.Div(
+            id = 'goToSite',
+            children = [ 
+                 goToSite('https://d3js.org/', 'D3Js')
+                 
+            ]
+        ),
         html.Div(
             id = 'dash-page-navigation-bar',
             children = [
                 page_link(p) for p in _pages
             ] 
         ),
-            
         html.Div(
             id = 'dash-page-container',
             children = [
@@ -71,16 +110,23 @@ app.layout = html.Div(
 )
 
 @callback(
+    Output('goToSite', 'children'),
     Output({'type': 'pages-links', 'index': ALL}, 'style'),
     Output({'type': 'pages-links', 'index': ALL}, 'n_clicks'),
     Input({'type': 'pages-links', 'index': ALL}, 'n_clicks'),
     prevent_initial_call = True
 )
 def styleCurrentPage(id):
+    idx= ctx.triggered_id.index
     pageIndex = id.index(1)
     styles = [{'backgroundColor':'transparent'}] * len(id)
     styles[pageIndex] = focusLinkStyle
-    return [styles, [0] * len(id)]
+    
+    return [ 
+        goToSite(_pages[idx], idx), 
+        styles, 
+        [0] * len(id)
+    ]
 
 
 
