@@ -45,13 +45,26 @@ body{
     border-radius: 10px;
 }
 
-.goToSiteButton{
+#goToSiteButton{
     position: fixed;
-    right: 20px;
+    right: 80px;
     top:20px;
     z-index: 2000;
     background-color: white;
     border-radius: 50px;
-    box-shadow: 0 0 50px #ccc
+    box-shadow: 0 0 50px #e1bbe5
 
+}
+
+.githubLogo{
+    position: fixed;
+    right: 20px;
+    top:20px;
+    box-shadow: 0 0 50px #e1bbe5;
+    z-index: 2000;
+    opacity: 1;
+    border-radius: 50%;
+    padding: 4px;
+  
+    
 }

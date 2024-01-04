@@ -82,9 +82,8 @@ def goToSite(link, logo):
                 children = [
                     dmc.Button(
                         "Visite Library",
-                        variant="subtle",
-                        className = 'goToSiteButton',
-                        leftIcon=dmc.Image(src=f"/assets/svg/{logo}.svg", width=20),
+                        variant="subtle",   
+                        leftIcon=dmc.Image(src=f"/assets/svg/{logo}.svg", width=25),
                     )
                 ]
             )
@@ -92,8 +91,22 @@ def goToSite(link, logo):
 app.layout = html.Div(
     id = 'dash-app-layout',
     children = [
+
+        html.A(
+            href='https://github.com/leberber/dashJsLibraries/tree/main', 
+            target="_blank",
+            className = "githubLogo",
+            children = [
+                dmc.ActionIcon( 
+                    variant="subtle",
+                    children = [
+                        dmc.Image(src=f"/assets/svg/github.svg", width=25), 
+                    ],
+                )
+            ]
+        ),
         html.Div(
-            id = 'goToSite',
+            id = 'goToSiteButton',
             children = [ 
                  goToSite('https://d3js.org/', 'D3Js')
                  
@@ -115,7 +128,7 @@ app.layout = html.Div(
 )
 
 @callback(
-    Output('goToSite', 'children'),
+    Output('goToSiteButton', 'children'),
     Output({'type': 'pages-links', 'index': ALL}, 'style'),
     Output({'type': 'pages-links', 'index': ALL}, 'n_clicks'),
     Input({'type': 'pages-links', 'index': ALL}, 'n_clicks'),
